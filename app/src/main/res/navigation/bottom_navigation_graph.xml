@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation_graph"
+    app:startDestination="@id/botton_navigation_home">
+
+    <fragment
+        android:id="@+id/botton_navigation_home"
+        android:name="it.unimib.cheaptrip.Fragment_Home"
+        android:label="fragment__home"
+        tools:layout="@layout/fragment__home" />
+    <fragment
+        android:id="@+id/botton_navigation_profile"
+        android:name="it.unimib.cheaptrip.Fragment_Profile"
+        android:label="fragment__profile"
+        tools:layout="@layout/fragment__profile" />
+    <fragment
+        android:id="@+id/botton_navigation_search"
+        android:name="it.unimib.cheaptrip.Fragment_Search"
+        android:label="fragment__search"
+        tools:layout="@layout/fragment__search" />
+</navigation>
