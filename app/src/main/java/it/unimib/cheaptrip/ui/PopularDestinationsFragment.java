@@ -74,21 +74,11 @@ public class PopularDestinationsFragment extends Fragment {
                     "Origin", null, null, null, null, null, null, null, null));
         }
 
-        PopularDirectionsFromFavorite_Response newsResponseWithJsonReader = readJsonFileWithJsonReader();
-        PopularDirectionsFromFavorite_Response newsResponseWithJsonObjectArray = readJsonFileWithJsonObjectArray();
         PopularDirectionsFromFavorite_Response newsResponseWithGson = readJsonFileWithGson();
 
-        mPopularDirectionsFromFavoriteListWithJsonReader = newsResponseWithJsonReader.getOptions();
-        mPopularDirectionsFromFavoriteListWithJsonObjectArray = newsResponseWithJsonObjectArray.getOptions();
+
         mPopularDirectionsFromFavoriteListWithGson = newsResponseWithGson.getOptions();
 
-        for (int i = 0; i < mPopularDirectionsFromFavoriteListWithJsonReader.size(); i++) {
-            Log.d(TAG, "JsonReader: " + mPopularDirectionsFromFavoriteListWithJsonReader.get(i));
-        }
-
-        for (int i = 0; i < mPopularDirectionsFromFavoriteListWithJsonObjectArray.size(); i++) {
-            Log.d(TAG, "JsonObjectArray: " + mPopularDirectionsFromFavoriteListWithJsonObjectArray.get(i));
-        }
 
         for (int i = 0; i < mPopularDirectionsFromFavoriteListWithGson.size(); i++) {
             Log.d(TAG, "Gson: " + mPopularDirectionsFromFavoriteListWithGson.get(i));
@@ -127,23 +117,6 @@ public class PopularDestinationsFragment extends Fragment {
         return view;
     }
 
-    //////////////////////
-
-    private PopularDirectionsFromFavorite_Response readJsonFileWithJsonReader() {
-
-        PopularDirectionsFromFavorite_Response popularDirectionsFromFavorite_Response = new PopularDirectionsFromFavorite_Response();
-        List<PopularDirectionsFromFavorite> newsList = new ArrayList<>();
-
-        try {
-            InputStream fileInputStream = getActivity().getAssets().open("The popular directions from a city.json");
-
-            JsonReader jsonReader = new JsonReader(new InputStreamReader(fileInputStream));
-
-            jsonReader.beginObject(); // root
-
-            while (jsonReader.hasNext()) {
-                String responseParameter = jsonReader.nextName();
-            //TODO
 
                         /*{
                             "success": true,
@@ -160,95 +133,21 @@ public class PopularDestinationsFragment extends Fragment {
                                     "expires_at": "2021-12-08T15:48:37Z"
                                 }, ....
                         * */
-            }
 
-                                    } catch (IOException e) {
-                                       e.printStackTrace();
-                                   }
-                                   newsResponse.setArticles(newsList);
-                                   return newsResponse;
-                               }
+    private PopularDirectionsFromFavorite_Response readJsonFileWithGson() {
 
-
-    /**
-     * It parses the news-test.json file using JSONObject (https://developer.android.com/reference/org/json/JSONObject)
-     * ans JSONArray (https://developer.android.com/reference/org/json/JSONArray) classes.
-     *
-     * @return The NewsResponse object associated with the parsed JSON file.
-     */
-    private NewsResponse readJsonFileWithJsonObjectArray() {
-
-        NewsResponse newsResponse = null;
+        PopularDirectionsFromFavorite_Response popularDirectionsFromFavorite_Response = null;
 
         try {
-
-            InputStream is = getActivity().getAssets().open("news-test.json");
-
-            int size = is.available();
-
-            // Read the entire asset into a local byte buffer.
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-
-            String jsonContent = new String(buffer);
-
-            newsResponse = new NewsResponse();
-            JSONObject rootJsonObject = new JSONObject(jsonContent);
-
-            newsResponse.setStatus(rootJsonObject.getString("status"));
-            newsResponse.setTotalResults(rootJsonObject.getInt("totalResults"));
-
-            JSONArray articlesJsonArray = rootJsonObject.getJSONArray("articles");
-            List<News> articlesList = new ArrayList<>();
-            newsResponse.setArticles(articlesList);
-
-            for (int i = 0; i < articlesJsonArray.length(); i++) {
-
-                JSONObject newsJsonObject = articlesJsonArray.getJSONObject(i);
-
-                NewsSource newsSource = new NewsSource(newsJsonObject.getJSONObject("source").getString("name"));
-
-                articlesList.add(new News(
-                        newsSource,
-                        newsJsonObject.getString("author"),
-                        newsJsonObject.getString("title"),
-                        newsJsonObject.getString("description"),
-                        newsJsonObject.getString("url"),
-                        newsJsonObject.getString("urlToImage"),
-                        newsJsonObject.getString("publishedAt"),
-                        newsJsonObject.getString("content")
-                ));
-            }
-
-        } catch (IOException | JSONException e) {
-            e.printStackTrace();
-        }
-
-        return newsResponse;
-    }
-
-    /**
-     * It parses the news-test.json file using Gson (https://github.com/google/gson)
-     *
-     * @return The NewsResponse object associated with the parsed JSON file.
-     */
-    private NewsResponse readJsonFileWithGson() {
-
-        NewsResponse newsResponse = null;
-
-        try {
-            InputStream inputStream = getActivity().getAssets().open("news-test.json");
+            InputStream inputStream = getActivity().getAssets().open("The popular directions from a city.json");
 
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
 
-            newsResponse = new Gson().fromJson(bufferedReader, NewsResponse.class);
+            popularDirectionsFromFavorite_Response = new Gson().fromJson(bufferedReader, PopularDirectionsFromFavorite_Response.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return newsResponse;
+        return popularDirectionsFromFavorite_Response;
     }
-}
-
 }
