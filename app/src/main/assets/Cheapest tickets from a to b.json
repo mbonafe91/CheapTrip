@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "data": {
+        "LON": {
+            "0": {
+                "price": 35,
+                "airline": "U2",
+                "flight_number": 8192,
+                "departure_at": "2022-01-31T13:25:00+01:00",
+                "return_at": "2022-02-05T17:05:00Z",
+                "expires_at": "2021-12-08T15:05:26Z"
+            }
+        }
+    },
+    "currency": "EUR"
+}
