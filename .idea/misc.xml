@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Chiara Omodeo Zorini/AndroidStudioProjects/CheapTrip/app/src/main/res/layout/activity_home.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/Chiara Omodeo Zorini/AndroidStudioProjects/CheapTrip/app/src/main/res/layout/activity_splash_screen.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/Chiara Omodeo Zorini/AndroidStudioProjects/CheapTrip/app/src/main/res/layout/fragment__home.xml" value="0.264" />
+        <entry key="..\:/Users/Chiara Omodeo Zorini/AndroidStudioProjects/CheapTrip/app/src/main/res/layout/fragment__profile.xml" value="0.1" />
+        <entry key="..\:/Users/Chiara Omodeo Zorini/AndroidStudioProjects/CheapTrip/app/src/main/res/layout/fragment__search.xml" value="0.1" />
+        <entry key="..\:/Users/Chiara Omodeo Zorini/AndroidStudioProjects/CheapTrip/app/src/main/res/layout/fragment_item_list.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/Chiara Omodeo Zorini/AndroidStudioProjects/CheapTrip/app/src/main/res/layout/fragment_popular_direction_from_favorite.xml" value="0.4" />
+        <entry key="..\:/Users/Chiara Omodeo Zorini/AndroidStudioProjects/CheapTrip/app/src/main/res/layout/popular_directions_from_favorite_item.xml" value="0.2" />
+        <entry key="..\:/Users/Chiara Omodeo Zorini/AndroidStudioProjects/CheapTrip/app/src/main/res/layout/popular_directions_from_favorite_list_item.xml" value="0.264" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
